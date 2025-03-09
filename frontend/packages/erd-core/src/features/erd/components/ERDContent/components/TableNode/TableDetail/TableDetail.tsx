@@ -26,7 +26,6 @@ import { Comment } from './Comment'
 import { Indices } from './Indices'
 import { RelatedTables } from './RelatedTables'
 import styles from './TableDetail.module.css'
-import { Unique } from './Unique'
 import { extractDBStructureForTable } from './extractDBStructureForTable'
 
 const hasNonRelatedChildNodes = (nodes: Node[]): boolean => {
@@ -114,7 +113,6 @@ export const TableDetail: FC<Props> = ({ table }) => {
         {table.comment && <Comment comment={table.comment} />}
         <Columns columns={table.columns} />
         <Indices indices={table.indices} />
-        <Unique columns={table.columns} />
         <div className={styles.relatedTables}>
           <RelatedTables
             nodes={nodes}
