@@ -8,6 +8,7 @@ type Props = {
     name: string
     unique: boolean
     columns: string[]
+    type: string
   }
 }
 
@@ -18,6 +19,12 @@ export const IndexesItem: FC<Props> = ({ index }) => {
         <div className={styles.dlItem}>
           <dt className={clsx(styles.dt, styles.dtOnly)}>{index.name}</dt>
         </div>
+        {index.type && (
+          <div className={styles.dlItem}>
+            <dt className={styles.dt}>Type</dt>
+            <dd className={styles.dd}>{index.type}</dd>
+          </div>
+        )}
         {!!index.columns.length && (
           <div className={styles.dlItem}>
             <dt className={styles.dt}>
