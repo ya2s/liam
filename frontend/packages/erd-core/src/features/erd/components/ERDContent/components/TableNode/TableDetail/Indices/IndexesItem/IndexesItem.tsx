@@ -13,13 +13,15 @@ type Props = {
 }
 
 export const IndexesItem: FC<Props> = ({ index }) => {
+  const HIDE_INDEX_TYPE = 'btree'
+
   return (
     <div className={styles.wrapper}>
       <dl className={styles.dl}>
         <div className={styles.dlItem}>
           <dt className={clsx(styles.dt, styles.dtOnly)}>{index.name}</dt>
         </div>
-        {index.type && (
+        {index.type && index.type.toLowerCase() !== HIDE_INDEX_TYPE && (
           <div className={styles.dlItem}>
             <dt className={styles.dt}>Type</dt>
             <dd className={styles.dd}>{index.type}</dd>
